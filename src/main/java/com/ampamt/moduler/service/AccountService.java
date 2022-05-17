@@ -1,0 +1,68 @@
+package com.ampamt.moduler.service;
+
+import java.util.List;
+
+import com.ampamt.moduler.bean.AmpamtAccountBean;
+import com.ampamt.moduler.bean.AmpamtAuditTrailBean;
+import com.ampamt.moduler.bean.AmpamtTherapiesBean;
+import com.ampamt.moduler.bean.BusinessAccountDetailsBean;
+import com.ampamt.moduler.bean.BusinessDocumentsDetailsBean;
+import com.ampamt.moduler.bean.DoctorsAccountDetailsBean;
+import com.ampamt.moduler.bean.DoctorsDocumentsDetailsBean;
+import com.ampamt.moduler.model.BusinessAccountModel;
+import com.ampamt.moduler.model.ChangePasswordModel;
+import com.ampamt.moduler.model.DoctorAccountModel;
+import com.ampamt.moduler.model.DoctorAccountStatusModel;
+import com.ampamt.moduler.model.DocumentsVerificationModel;
+import com.ampamt.moduler.model.SuccessModel;
+import com.ampamt.moduler.model.UserSearchModel;
+
+public interface AccountService {
+
+	SuccessModel createDoctorAccount(DoctorAccountModel doctorAccountModel);
+	SuccessModel createDoctorsAccountDetails(DoctorsAccountDetailsBean doctorsAccountDetailsBean);
+	SuccessModel updateDoctorAccountDetails(DoctorsAccountDetailsBean doctorsAccountDetailsBean);
+	SuccessModel deleteDoctorAccountDetails(DoctorsAccountDetailsBean doctorsAccountDetailsBean);
+	SuccessModel createDoctorsDocumentsDetails(DoctorsDocumentsDetailsBean doctorsDocumentsDetailsBean);
+	List<DoctorsAccountDetailsBean> getDoctordetail(DoctorsAccountDetailsBean doctorsAccountDetailsBean);
+	List<DoctorsAccountDetailsBean> getDoctorsLists(DoctorsAccountDetailsBean doctorsAccountDetailsBean);
+	SuccessModel createAccountId(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel createBusinessAccount(BusinessAccountModel businessAccountModel);
+	List<DoctorsDocumentsDetailsBean> getDocumentdetail(DoctorsDocumentsDetailsBean doctorsDocumentsDetailsBean);
+	SuccessModel updateDoctorDocuments(DoctorsDocumentsDetailsBean doctorsDocumentsDetailsBean);
+	SuccessModel doctorLogin(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel deleteBusinessAccountDetails(BusinessAccountDetailsBean businessAccountDetailsBean);
+	SuccessModel createBusinessAccountDetails(BusinessAccountDetailsBean businessAccountDetailsBean);
+	SuccessModel createBusinessDocumentsDetails(BusinessDocumentsDetailsBean businessDocumentsDetailsBean);
+	List<BusinessDocumentsDetailsBean> getBusinessDocumentdetail(
+			BusinessDocumentsDetailsBean businessDocumentsDetailsBean);
+	SuccessModel updateBusinessDocuments(BusinessDocumentsDetailsBean businessDocumentsDetailsBean);
+	SuccessModel updateBusinessAccountDetails(BusinessAccountDetailsBean businessAccountDetailsBean);
+	List<BusinessAccountDetailsBean> getBusinessAccdetail(BusinessAccountDetailsBean businessAccountDetailsBean);
+	List<BusinessAccountDetailsBean> getBusinessAccLists(BusinessAccountDetailsBean businessAccountDetailsBean);
+	SuccessModel businessLogin(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel checkAmpamtAccount(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel changePassword(ChangePasswordModel changePasswordModel);
+	SuccessModel setOTP(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel changeCurrentPassword(ChangePasswordModel changePasswordModel);
+	SuccessModel approveAccount(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel getTotalUsers(AmpamtAccountBean ampamtAccountBean);
+	List<BusinessAccountDetailsBean> searchServiceProviders(BusinessAccountDetailsBean businessAccountDetailsBean);
+	List<UserSearchModel> searchUsers(UserSearchModel userSearchModel);
+	SuccessModel approveDoctorAccount(DoctorsAccountDetailsBean doctorsAccountDetailsBean);
+	SuccessModel approveBusinessAccount(BusinessAccountDetailsBean businessAccountDetailsBean);
+	List<AmpamtTherapiesBean> getTherapyLists(AmpamtTherapiesBean ampamtTherapiesBean);
+	SuccessModel userExcelDownload(UserSearchModel userSearchModel);
+	SuccessModel userBusinessExcelDownload(UserSearchModel userSearchModel);
+	SuccessModel userDoctorExcelDownload(UserSearchModel userSearchModel);
+	
+	SuccessModel createAuditTrail(String clientIp,String accountid,String action,String module );
+	SuccessModel verifyOtp(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel updateAmpamtAccount(AmpamtAccountBean ampamtAccountBean);
+	List<DocumentsVerificationModel> documentsVerificationDetails(AmpamtAccountBean ampamtAccountBean);
+	List<AmpamtAccountBean> getAmpamtAccountDetail(AmpamtAccountBean ampamtAccountBean);
+	List<DoctorAccountStatusModel> getDoctorsAccountListByStatus(DoctorAccountStatusModel doctorAccountStatusModel);
+	SuccessModel verifyChangePasswordOtp(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel createAuditTrailByBean(AmpamtAuditTrailBean ampamtAuditTrailBean);
+
+}

@@ -1,0 +1,60 @@
+package com.ampamt.moduler.dao;
+
+import java.util.List;
+
+import com.ampamt.moduler.bean.AmpamtAccountBean;
+import com.ampamt.moduler.bean.AmpamtAuditTrailBean;
+import com.ampamt.moduler.bean.AmpamtTherapiesBean;
+import com.ampamt.moduler.bean.BusinessAccountDetailsBean;
+import com.ampamt.moduler.bean.BusinessDocumentsDetailsBean;
+import com.ampamt.moduler.bean.DoctorsAccountDetailsBean;
+import com.ampamt.moduler.bean.DoctorsDocumentsDetailsBean;
+import com.ampamt.moduler.model.ChangePasswordModel;
+import com.ampamt.moduler.model.DoctorAccountStatusModel;
+import com.ampamt.moduler.model.DocumentsVerificationModel;
+import com.ampamt.moduler.model.SuccessModel;
+import com.ampamt.moduler.model.UserSearchModel;
+
+public interface AccountDao {
+
+	
+	SuccessModel createAccountId(AmpamtAccountBean ampamtAccount);
+	SuccessModel createDoctorsAccountDetails(DoctorsAccountDetailsBean ampamtDoctorsAccountDetails);
+	SuccessModel updateDoctorAccountDetails(DoctorsAccountDetailsBean ampamtDoctorsAccountDetails);
+	SuccessModel deleteDoctorAccountDetails(DoctorsAccountDetailsBean ampamtDoctorsAccountDetails);
+	SuccessModel createDoctorsDocumentsDetails(DoctorsDocumentsDetailsBean doctorsDocumentsDetails);
+	List<DoctorsAccountDetailsBean> getDoctordetail(DoctorsAccountDetailsBean ampamtDoctorsAccountDetails);
+	List<DoctorsAccountDetailsBean> getDoctorsLists(DoctorsAccountDetailsBean ampamtDoctorsAccountDetails);
+	List<DoctorsDocumentsDetailsBean> getDocumentdetail(DoctorsDocumentsDetailsBean doctorsDocumentsDetails);
+	SuccessModel updateDoctorDocuments(DoctorsDocumentsDetailsBean doctorsDocumentsDetails);
+	SuccessModel doctorLogin(AmpamtAccountBean ampamtAccount);
+	SuccessModel deleteBusinessAccountDetails(BusinessAccountDetailsBean businessAccountDetailsBean);
+	SuccessModel createBusinessAccountDetails(BusinessAccountDetailsBean businessAccountDetailsBean);
+	SuccessModel createBusinessDocumentsDetails(BusinessDocumentsDetailsBean businessDocumentsDetailsBean);
+	List<BusinessDocumentsDetailsBean> getBusinessDocumentdetail(
+			BusinessDocumentsDetailsBean businessDocumentsDetailsBean);
+	SuccessModel updateBusinessDocuments(BusinessDocumentsDetailsBean businessDocumentsDetailsBean);
+	SuccessModel updateBusinessAccountDetails(BusinessAccountDetailsBean businessAccountDetailsBean);
+	List<BusinessAccountDetailsBean> getBusinessAccdetail(BusinessAccountDetailsBean businessAccountDetailsBean);
+	List<BusinessAccountDetailsBean> getBusinessAccLists(BusinessAccountDetailsBean businessAccountDetailsBean);
+	SuccessModel businessLogin(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel changePassword(ChangePasswordModel changePasswordModel);
+	SuccessModel checkAmpamtAccount(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel setOTP(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel approveAccount(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel getTotalUsers(AmpamtAccountBean ampamtAccountBean);
+	List<BusinessAccountDetailsBean> searchServiceProviders(BusinessAccountDetailsBean businessAccountDetailsBean);
+	List<UserSearchModel> searchUsers(UserSearchModel userSearchModel);
+	
+	List<DocumentsVerificationModel> documentsVerification(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel approveDoctorAccount(DoctorsAccountDetailsBean doctorsAccountDetailsBean);
+	SuccessModel approveBusinessAccount(BusinessAccountDetailsBean businessAccountDetailsBean);
+	List<AmpamtTherapiesBean> getTherapyLists(AmpamtTherapiesBean ampamtTherapiesBean);
+	SuccessModel createAuditTrail(String clientIp,String accountid,String action,String module );
+	SuccessModel verifyOtp(AmpamtAccountBean ampamtAccountBean);
+	SuccessModel updateAmpamtAccount(AmpamtAccountBean ampamtAccountBean);
+	List<AmpamtAccountBean> getAmpamtAccountById(AmpamtAccountBean ampamtAccountBean);
+	List<AmpamtAccountBean> getAmpamtAccountDetail(AmpamtAccountBean ampamtAccountBean);
+	List<DoctorAccountStatusModel> getDoctorsAccountListByStatus(DoctorAccountStatusModel doctorAccountStatusModel);
+	SuccessModel createAuditTrailByBean(AmpamtAuditTrailBean ampamtAuditTrailBean);
+}
